@@ -1,5 +1,3 @@
-/* iaed-23 - ist1107245 - lab03/ex02 */
-
 #include <stdio.h>
 
 void piramide(int n) {
