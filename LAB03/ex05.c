@@ -1,5 +1,3 @@
-/* iaed-23 - ist1107245 - lab03/ex05 */
-
 #include <stdio.h>
 
 int main() {
