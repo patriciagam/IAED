@@ -1,21 +1,50 @@
-/* iaed-23 - ist1107245 - lab03/ex04 */
-
 #include <stdio.h>
 
-int main() {
-    int c;
-    long num = 0;
+int nonzero(int c) {
+    return c >= '1' && c <= '9';  
+}
 
-    while ((c = getchar()) != EOF) {
-        if (c == '0' && num == 0) {
-        }
-        else if (c >= '0' && c <= '9')
-            num = num * 10 + (c - '0');
-        else {
-            printf("%ld%c", num, c);
-            num = 0;
+int spc(int c) {
+    return c == ' ' || c == '\n';
+}
+
+enum state{FORA, INIT, DENTRO};  
+
+int main() {
+    enum state st = FORA;       
+    int current;
+    while ((current = getchar()) != EOF) {
+        switch(st) {                         
+            case FORA:                       
+                if (nonzero(current)) {
+                    putchar(current);
+                    st = DENTRO;
+                }
+                else if (current == '0')
+                    st = INIT;
+                else
+                    putchar(current);
+                break;
+            case INIT:          /*spc == 1 zero*/
+                if (spc(current)) {
+                    putchar('0');
+                    putchar(current);
+                    st = FORA;
+                }
+                else if (nonzero(current)){
+                    putchar(current);
+                    st = DENTRO;
+                }
+                break;
+            case DENTRO:                       
+                putchar(current);
+                if (spc(current))
+                    st = FORA;
+                break;
         }
     }
-
+    if (st == INIT)
+        putchar('0');
+        
     return 0;
 }
