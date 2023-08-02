@@ -1,17 +1,14 @@
-/* iaed-23 - ist1107245 - lab09/ex06 */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 typedef struct {
-    int *v;     /* contents of the stack */
-    int cap;    /* capacity of v, i.e. how many elements can fit in v */
-    int sz;     /* number of elements currently stored in v */
+    int *v;   
+    int cap;    
+    int sz;     
 } stack;
 
 
-/* builds a new empty stack with initial capacity 4 */
 stack* build() {
     stack *stck = (stack*) malloc(sizeof(stack));
     stck->v = (int*) malloc(sizeof(int) * 4);
@@ -20,7 +17,7 @@ stack* build() {
     return stck;
 }
 
-/* pushes integer on top of the stack (reallocate v if necessary) */
+
 void push(stack * stck, int e) { 
     if (stck->sz == stck->cap) {
         stck->cap *= 2;
@@ -29,22 +26,22 @@ void push(stack * stck, int e) {
     stck->v[stck->sz++] = e;
 }
 
-/* returns top element in the stack */
+
 int top(stack * stck) {
     return stck->v[stck->sz - 1];
 }
 
-/* removes top element from the stack and returns it (not necessary to reallocate v) */                
+           
 int pop(stack * stck) {
     return stck->v[--stck->sz];
 } 
 
-/* returns 1 if stck represents the empty stack, returns 0 otherwise */
+
 int is_empty(stack * stck) {
     return stck->sz == 0;
 } 
 
-/* frees the memory associated with the stack */
+
 void destroy(stack * stck) {
     free(stck->v);
     free(stck);
