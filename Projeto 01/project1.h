@@ -1,5 +1,3 @@
-/* iaed-23 - ist1107245 - project1 */
-
 /*
  * File:  project1.h
  * Author:  Patrícia Gameiro
