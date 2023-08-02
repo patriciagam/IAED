@@ -1,7 +1,8 @@
 /*
  * File:  project2.h
  * Author:  Patrícia Gameiro
- * Description: File contains defining constants, data types, and function      * prototypes for a public transportation management system.
+ * Description: File contains defining constants, data types, and function      
+ * prototypes for a public transportation management system.
  */
 
 #ifndef MAIN_H
