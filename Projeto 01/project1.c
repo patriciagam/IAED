@@ -167,10 +167,10 @@ void updateLine(int id_line, int id_origin, int id_dest, int direction) {
 	else {
 		/* shifts the id_stops array to the right */
 		for (i = _lines[id_line].total_stops; i > 0; i--)       
-    		_lines[id_line].id_stops[i] = _lines[id_line].id_stops[i-1];
-		strcpy(_lines[id_line].origin.name, _stops[id_origin].name);
-		_lines[id_line].id_stops[0] = id_origin;
-		_lines[id_line].total_stops++;
+    			_lines[id_line].id_stops[i] = _lines[id_line].id_stops[i-1];
+			strcpy(_lines[id_line].origin.name, _stops[id_origin].name);
+			_lines[id_line].id_stops[0] = id_origin;
+			_lines[id_line].total_stops++;
 		/* checks if line is circular */
 		if (strcmp(_lines[id_line].origin.name, _lines[id_line].dest.name))
 			_stops[id_origin].total_lines++;
